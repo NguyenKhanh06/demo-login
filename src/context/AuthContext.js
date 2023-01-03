@@ -30,14 +30,13 @@ export const AuthContextProvider = ({ children }) => {
       const user = result.user;
       let regex = new RegExp("[a-z0-9]+@fpt.edu.vn");
       let regexfe = new RegExp("[a-z0-9]+@fe.edu.vn");
-      if (!regex.test(user.email) || !regexfe.test(user.email)) {
+      if (!regex.test(user.email) && !regexfe.test(user.email)) {
         signOut(auth).then(  setTimeout(() => {
           alert("You are not allowed to");
          }, "800"))
       
       }
       // navigate('/account');
-      console.log(credential );
       // ...
     }).catch((error) => {
       // Handle Errors here.
